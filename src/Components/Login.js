@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../Config/Config';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,7 +13,22 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    //console.log(email, password);
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setSuccessMsg(
+          'Inicio de sesión exitoso, serás redireccionado a la página principal'
+        );
+        setEmail('');
+        setPassword('');
+        setErrorMsg('');
+        setTimeout(() => {
+          setSuccessMsg('');
+          navigate('/');
+        }, 3000);
+      })
+      .catch((error) => setErrorMsg(error.message));
   };
 
   return (
@@ -19,6 +37,12 @@ export default function Login() {
       <br></br>
       <h1>Iniciar Sesión</h1>
       <hr></hr>
+      {successMsg && (
+        <>
+          <div className="succes-msg">{successMsg}</div>
+          <br></br>
+        </>
+      )}
       <form className="form-group" autoComplete="off" onSubmit={handleLogin}>
         <label>Correo Eléctronico</label>
         <input
@@ -51,6 +75,12 @@ export default function Login() {
           </button>
         </div>
       </form>
+      {errorMsg && (
+        <>
+          <br></br>
+          <div className="error-msg">{errorMsg}</div>
+        </>
+      )}
     </div>
   );
 }

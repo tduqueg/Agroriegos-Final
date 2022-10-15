@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { auth, fs } from '../Config/Config';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function Signup() {
+  const navigate = useNavigate();
+
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,7 +14,36 @@ export default function Signup() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(fullName, email, password);
+    //console.log(fullName, email, password);
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((credentials) => {
+        console.log(credentials);
+        fs.collection('Users')
+          .doc(credentials.user.uid)
+          .set({
+            FullName: fullName,
+            Email: email,
+            Password: password,
+          })
+          .then(() => {
+            setSuccessMsg(
+              'Su registro fue exitoso, serás redireccionado al inicio de sesión'
+            );
+            setFullName('');
+            setEmail('');
+            setPassword('');
+            setErrorMsg('');
+            setTimeout(() => {
+              setSuccessMsg('');
+              navigate('/login');
+            }, 3000);
+          })
+          .catch((error) => setErrorMsg(error.message));
+      })
+      .catch((error) => {
+        setErrorMsg(error.message);
+      });
   };
   return (
     <div className="container">
@@ -18,6 +51,12 @@ export default function Signup() {
       <br></br>
       <h1>Registrarse</h1>
       <hr></hr>
+      {successMsg && (
+        <>
+          <div className="succes-msg">{successMsg}</div>
+          <br></br>
+        </>
+      )}
       <form className="form-group" autoComplete="off" onSubmit={handleSignup}>
         <label>Nombre completo</label>
         <input
@@ -59,6 +98,12 @@ export default function Signup() {
           </button>
         </div>
       </form>
+      {errorMsg && (
+        <>
+          <br></br>
+          <div className="error-msg">{errorMsg}</div>
+        </>
+      )}
     </div>
   );
 }
