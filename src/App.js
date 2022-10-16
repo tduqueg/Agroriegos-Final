@@ -5,6 +5,7 @@ import Login from './Components/Login';
 import Notfound from './Components/Notfound';
 import Signup from './Components/Signup';
 import AddProducts from './Components/AddProducts';
+import Cart from './Components/Cart';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="signup" element={<Signup />}></Route>
         <Route path="login" element={<Login />}></Route>
         <Route path="add-products" element={<AddProducts />}></Route>
+        <Route path="cart" element={<Cart />}></Route>
         <Route path="*" element={<Notfound />} />
       </Routes>
     </BrowserRouter>

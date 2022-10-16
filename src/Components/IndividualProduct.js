@@ -1,7 +1,10 @@
 import React from 'react';
 
-export default function IndividualProduct({ individualProduct }) {
-  console.log(IndividualProduct);
+export default function IndividualProduct({ individualProduct, addToCart }) {
+  //console.log(IndividualProduct);
+  const handleAddToCart = () => {
+    addToCart(individualProduct);
+  };
   return (
     <div className="product">
       <div className="product-img">
@@ -12,7 +15,9 @@ export default function IndividualProduct({ individualProduct }) {
         {individualProduct.description}
       </div>
       <div className="product-text price">$ {individualProduct.price}</div>
-      <div className="btn btn-danger btn-md cart-btn">Añadir al carrito</div>
+      <div className="btn btn-danger btn-md cart-btn" onClick={handleAddToCart}>
+        Añadir al carrito
+      </div>
     </div>
   );
 }

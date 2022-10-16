@@ -3,7 +3,23 @@ import { Navbar } from './Navbar';
 import Products from './Products';
 import { auth, fs } from '../Config/Config';
 
-export default function Home() {
+export default function Home(props) {
+  // obtener la UID del usuario actual
+
+  function GetUserUid() {
+    const [uid, setUid] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          setUid(user.uid);
+        }
+      });
+    });
+    return uid;
+  }
+
+  const uid = GetUserUid();
+
   function GetCurrentUser() {
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -47,6 +63,24 @@ export default function Home() {
     getProducts();
   }, []);
 
+  let Product;
+  const addToCart = (product) => {
+    if (uid !== null) {
+      //console.log(product);
+      Product = product;
+      Product['qty'] = 1;
+      Product['TotalProductPrice'] = Product.qty * Product.price;
+      fs.collection('Cart ' + uid)
+        .doc(product.ID)
+        .set(Product)
+        .then(() => {
+          console.log('Producto añadido al carro correctamente');
+        });
+    } else {
+      props.history.push('/login');
+    }
+  };
+
   return (
     <>
       <Navbar user={user} />
@@ -55,7 +89,7 @@ export default function Home() {
         <div className="container-fluid">
           <h1 className="text-center">Productos</h1>
           <div className="products-box">
-            <Products products={products} />
+            <Products products={products} addToCart={addToCart} />
           </div>
         </div>
       )}
