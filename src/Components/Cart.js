@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { auth, fs } from '../Config/Config';
 import CartProducts from './CartProducts';
 import { Navbar } from './Navbar';
+import StripeCheckout from 'react-stripe-checkout';
 
 export default function Cart() {
   function GetCurrentUser() {
@@ -51,6 +52,25 @@ export default function Cart() {
 
   //console.log(cartProducts);
 
+  //Función para obtener la cantidad total de productos del carrito
+  const qty = cartProducts.map((cartProduct) => {
+    return cartProduct.qty;
+  });
+
+  const reducerOfQty = (accumulator, currentValue) =>
+    accumulator + currentValue;
+
+  const totalQty = qty.reduce(reducerOfQty, 0);
+
+  //Función para obtener el precio total de los productos del carrito
+  const price = cartProducts.map((cartProduct) => {
+    return cartProduct.TotalProductPrice;
+  });
+
+  const reducerOfPrice = (accumulator, currentValue) =>
+    accumulator + currentValue;
+
+  const totalPrice = price.reduce(reducerOfPrice, 0);
   //Variable global
   let Product;
 
@@ -103,9 +123,22 @@ export default function Cart() {
     }
   };
 
+  const [totalProducts, setTotalProducts] = useState(0);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        fs.collection('Cart ' + user.uid).onSnapshot((snapshot) => {
+          const qty = snapshot.docs.length;
+          setTotalProducts(qty);
+        });
+      }
+    });
+  }, []);
+
   return (
     <>
-      <Navbar user={user} />
+      <Navbar user={user} totalProducts={totalProducts} />
       <br></br>
       {cartProducts.length > 0 && (
         <div className="container-fluid">
@@ -116,6 +149,18 @@ export default function Cart() {
               cartProductIncrease={cartProductIncrease}
               cartProductDecrease={cartProductDecrease}
             />
+          </div>
+          <div className="summary-box">
+            <h5>Resumen del carrito</h5>
+            <br></br>
+            <div>
+              Cantidad total de productos <span>{totalQty}</span>
+            </div>
+            <div>
+              Costo total del carrito <span>$ {totalPrice}</span>
+            </div>
+            <br></br>
+            <StripeCheckout></StripeCheckout>
           </div>
         </div>
       )}

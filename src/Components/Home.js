@@ -63,7 +63,22 @@ export default function Home(props) {
     getProducts();
   }, []);
 
+  const [totalProducts, setTotalProducts] = useState(0);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        fs.collection('Cart ' + user.uid).onSnapshot((snapshot) => {
+          const qty = snapshot.docs.length;
+          setTotalProducts(qty);
+        });
+      }
+    });
+  }, []);
+
   let Product;
+
+  //Función para añadir al carrito
   const addToCart = (product) => {
     if (uid !== null) {
       //console.log(product);
@@ -83,7 +98,7 @@ export default function Home(props) {
 
   return (
     <>
-      <Navbar user={user} />
+      <Navbar user={user} totalProducts={totalProducts} />
       <br></br>
       {products.length > 0 && (
         <div className="container-fluid">
