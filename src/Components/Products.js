@@ -1,5 +1,13 @@
 import React from 'react';
+import IndividualProduct from './IndividualProduct';
 
-export default function Products() {
-  return <div>Individual Products Individual Products 2</div>;
+export default function Products({ products }) {
+  //onsole.log(products);
+
+  return products.map((individualProduct) => (
+    <IndividualProduct
+      key={individualProduct.ID}
+      individualProduct={individualProduct}
+    />
+  ));
 }
