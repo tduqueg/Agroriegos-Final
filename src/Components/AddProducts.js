@@ -5,6 +5,7 @@ export default function AddProducts() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [tamaño, setTamaño] = useState('');
   const [image, setImage] = useState(null);
 
   const [imageError, setImageError] = useState('');
@@ -51,6 +52,7 @@ export default function AddProducts() {
               .add({
                 title,
                 description,
+                tamaño,
                 price: Number(price),
                 url,
               })
@@ -58,6 +60,7 @@ export default function AddProducts() {
                 setSuccessMsg('El producto se añadió correctamente');
                 setTitle('');
                 setDescription('');
+                setTamaño('');
                 setPrice('');
                 document.getElementById('file').value = '';
                 setImageError('');
@@ -114,6 +117,22 @@ export default function AddProducts() {
           onChange={(e) => setPrice(e.target.value)}
           value={price}
         ></input>
+        <br></br>
+        <label>Tamaño del cultivo objetivo del producto</label>
+        <select
+          className="form-control"
+          required
+          value={tamaño}
+          onChange={(e) => setTamaño(e.target.value)}
+        >
+          <option value="">
+            Seleccione tamaño del cultivo que mejor se adapta al producto
+          </option>
+          <option>Entre 10-50m</option>
+          <option>Entre 50-100m</option>
+          <option>Entre 100-400m</option>
+          <option>Entre 400+m</option>
+        </select>
         <br></br>
         <label>Subir la imagen del producto</label>
         <input
