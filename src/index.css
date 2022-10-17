@@ -60,7 +60,7 @@
 }
 
 .navbar .logo {
-  width: 150px;
+  width: 250px;
   height: auto;
 }
 
@@ -113,6 +113,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  overflow: hidden;
 }
 
 .products-box.cart {

@@ -3,6 +3,12 @@ import { auth, fs } from '../Config/Config';
 import CartProducts from './CartProducts';
 import { Navbar } from './Navbar';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 export default function Cart() {
   function GetCurrentUser() {
@@ -136,6 +142,44 @@ export default function Cart() {
     });
   }, []);
 
+  //Realizando el cobro
+  const navigate = useNavigate();
+
+  const handleToken = async (token) => {
+    //console.log(token);
+
+    const cart = { name: 'All products', totalPrice };
+    const response = await axios.post('http://localhost:8080/checkout', {
+      token,
+      cart,
+    });
+    console.log(response);
+    let { status } = response.data;
+    console.log(status);
+    if (status === 'success') {
+      navigate('/');
+      toast.success('Tu orden ha sido tomada con exito', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+
+      const uid = auth.currentUser.uid;
+      const carts = await fs.collection('Cart ' + uid).get();
+      for (var snap of carts.doc) {
+        fs.collection('Cart ' + uid)
+          .doc(snap.id)
+          .delete();
+      }
+    } else {
+      alert('Algo salió mal realizando la compra :(');
+    }
+  };
+
   return (
     <>
       <Navbar user={user} totalProducts={totalProducts} />
@@ -160,7 +204,15 @@ export default function Cart() {
               Costo total del carrito <span>$ {totalPrice}</span>
             </div>
             <br></br>
-            <StripeCheckout></StripeCheckout>
+            <StripeCheckout
+              stripeKey="pk_test_51LthRxHRPBXA1owAo7qQDi1Sxf6lub4JQtdG7poFRiKjedo33hCmDT7ctYvfVGHDzCjhu32sEYMPcWrAcRYO9aZN00jLVxG38x"
+              token={handleToken}
+              billingAddress
+              shippingAddress
+              name="Todos los productos"
+              amount={totalPrice * 100}
+              currency="COP"
+            ></StripeCheckout>
           </div>
         </div>
       )}
