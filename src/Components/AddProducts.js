@@ -6,6 +6,9 @@ export default function AddProducts() {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [tamaño, setTamaño] = useState('');
+  const [presupuesto, setPresupuesto] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [tipoRiego, setTipoRiego] = useState('');
   const [image, setImage] = useState(null);
 
   const [imageError, setImageError] = useState('');
@@ -53,6 +56,9 @@ export default function AddProducts() {
                 title,
                 description,
                 tamaño,
+                presupuesto,
+                tipo,
+                tipoRiego,
                 price: Number(price),
                 url,
               })
@@ -61,6 +67,9 @@ export default function AddProducts() {
                 setTitle('');
                 setDescription('');
                 setTamaño('');
+                setPresupuesto('');
+                setTipo('');
+                setTipoRiego('');
                 setPrice('');
                 document.getElementById('file').value = '';
                 setImageError('');
@@ -125,13 +134,55 @@ export default function AddProducts() {
           value={tamaño}
           onChange={(e) => setTamaño(e.target.value)}
         >
-          <option value="">
-            Seleccione tamaño del cultivo que mejor se adapta al producto
-          </option>
-          <option>Entre 10-50m</option>
-          <option>Entre 50-100m</option>
-          <option>Entre 100-400m</option>
-          <option>Entre 400+m</option>
+          <option value="">Seleccione una de las opciones</option>
+          <option>10-50m^2</option>
+          <option>50-100m^2</option>
+          <option>100-400m^2</option>
+          <option>400+m^2</option>
+        </select>
+        <br></br>
+        <label>Presupuesto del cultivo objetivo del producto</label>
+        <select
+          className="form-control"
+          required
+          value={presupuesto}
+          onChange={(e) => setPresupuesto(e.target.value)}
+        >
+          <option value="">Seleccione una de las opciones</option>
+          <option>$ 500.000 - $ 1.000.000</option>
+          <option>$ 1.000.000 - $ 5.000.000</option>
+          <option>$ 5.000.000 - $ 10.000.000</option>
+          <option>$ 10.000.000 - $ 20.000.000</option>
+          <option>$ 20.000.000+</option>
+        </select>
+        <br></br>
+        <label>Tipo de cultivo objetivo del producto</label>
+        <select
+          className="form-control"
+          required
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+        >
+          <option value="">Seleccione una de las opciones</option>
+          <option>De cereales</option>
+          <option>Frutal</option>
+          <option>Ornamental</option>
+          <option>Raíces y tubérculos</option>
+          <option>Pastos</option>
+        </select>
+        <br></br>
+        <label>Tipo de riego objetivo del producto</label>
+        <select
+          className="form-control"
+          required
+          value={tipoRiego}
+          onChange={(e) => setTipoRiego(e.target.value)}
+        >
+          <option value="">Seleccione una de las opciones</option>
+          <option>Por aspersión</option>
+          <option>Por difusor</option>
+          <option>Por goteo</option>
+          <option>Por cintas de exudación</option>
         </select>
         <br></br>
         <label>Subir la imagen del producto</label>

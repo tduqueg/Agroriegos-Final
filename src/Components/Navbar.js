@@ -22,6 +22,10 @@ export const Navbar = ({ user, totalProducts }) => {
           <img src={logo} alt="logo" />
         </div>
       </div>
+
+      <div className="center">
+        <h1>AGRORIEGOS</h1>
+      </div>
       <div className="rightside">
         <div>
           {!user && (
@@ -49,7 +53,7 @@ export const Navbar = ({ user, totalProducts }) => {
                 <span className="cart-indicator">{totalProducts}</span>
               </div>
               <div className="btn btn-danger btn-md" onClick={handleLogout}>
-                LOGOUT
+                Cerrar Sesión
               </div>
             </>
           )}

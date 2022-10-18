@@ -60,8 +60,9 @@
 }
 
 .navbar .logo {
-  width: 250px;
+  width: 100px;
   height: auto;
+  margin-left: 15px;
 }
 
 .navbar .logo img {
@@ -69,6 +70,13 @@
   height: 100%;
 }
 
+.navbar .center h1 {
+  text-align: left;
+  margin-top: 10px;
+  color: #0c5c13;
+  font-weight: 900;
+  cursor: pointer;
+}
 .navbar .rightside {
   display: flex;
   font-weight: 600;
@@ -87,7 +95,8 @@
 }
 
 .navbar .rightside div {
-  margin: 0px 10px;
+  margin: 0px 15px;
+  display: flex;
 }
 
 @media (max-width: 450px) {
@@ -100,12 +109,16 @@
   text-decoration: none;
   color: #000;
   padding: 7.5px;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* products */
 .products-box {
   width: 100%;
-  height: auto;
+  height: 900px;
   overflow-y: scroll;
   display: flex;
   flex-direction: row;
@@ -113,7 +126,6 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
-  overflow: hidden;
 }
 
 .products-box.cart {
@@ -168,7 +180,7 @@
 }
 
 .product .product-text.title {
-  color: #e00a02;
+  color: #0c5c13;
   font-weight: 600;
   font-size: 20px;
   margin-top: 10px;
@@ -177,6 +189,7 @@
 .product .product-text.description {
   height: 50px;
   overflow: hidden;
+  text-align: justify;
 }
 
 .product .product-text.price {
@@ -185,11 +198,12 @@
 
 .product .product-text.cart-price {
   font-weight: 600;
-  color: #e00a02;
+  color: #0c5c13;
 }
 
 .cart-btn {
-  background-color: #e00a02 !important;
+  background-color: #0c5c13 !important;
+  color: white !important;
 }
 
 .cart-menu-btn {
@@ -198,15 +212,15 @@
 
 .cart-menu-btn .cart-indicator {
   width: 18px;
-  background-color: #e00a02;
+  background-color: #0c5c13;
   padding: 3px;
   border-radius: 3px;
   color: #fff;
   font-size: 11px;
   font-weight: 600;
   position: absolute;
-  top: -17px;
-  right: -15px;
+  top: -10px;
+  right: -5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -230,7 +244,7 @@
 
 /* summary box */
 .summary-box {
-  width: 375px;
+  width: 450px;
   margin: 30px auto;
   border: 1px solid #b9b5b5;
   display: flex;
@@ -240,7 +254,7 @@
 
 .summary-box h5 {
   display: flex;
-  border-bottom: 1px solid #e00a02;
+  border-bottom: 1px solid #0c5c13;
   text-align: center;
   padding: 0px;
 }
@@ -382,26 +396,61 @@
   font-size: 14px;
 }
 
-.filter-box span.ElectronicDevices {
+.filter-box span.diezcincuenta {
   color: #e00a02;
 }
 
-.filter-box span.MobileAccessories {
+.filter-box span.cincuentacien {
   color: #e00a02;
 }
 
-.filter-box span.TVAndHomeAppliances {
+.filter-box span.ciencuatrocientos {
   color: #e00a02;
 }
 
-.filter-box span.SportsAndOutdoors {
+.filter-box span.cuatrocientos {
   color: #e00a02;
 }
 
-.HealthAndBeauty,
-.HomeAndLifestyle,
-.MensFashion,
-.WatchesBagsAndJewellery,
-.Groceries {
+.filter-box span.quinientosmillon {
+  color: #e00a02;
+}
+.filter-box span.milloncincomillones {
+  color: #e00a02;
+}
+.filter-box span.cincomillonesdiezmillones {
+  color: #e00a02;
+}
+.filter-box span.diezmillonesveintemillones {
+  color: #e00a02;
+}
+.filter-box span.veintemillones {
+  color: #e00a02;
+}
+.filter-box span.DeCereales {
+  color: #e00a02;
+}
+.filter-box span.Frutal {
+  color: #e00a02;
+}
+.filter-box span.Ornamental {
+  color: #e00a02;
+}
+.filter-box span.RaicesYTuberculos {
+  color: #e00a02;
+}
+.filter-box span.Pastos {
+  color: #e00a02;
+}
+.filter-box span.PorAspersion {
+  color: #e00a02;
+}
+.filter-box span.PorDifusor {
+  color: #e00a02;
+}
+.filter-box span.PorGoteo {
+  color: #e00a02;
+}
+.filter-box span.PorCintasDeExudacion {
   color: #e00a02;
 }

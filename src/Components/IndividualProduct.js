@@ -15,7 +15,7 @@ export default function IndividualProduct({ individualProduct, addToCart }) {
         {individualProduct.description}
       </div>
       <div className="product-text price">$ {individualProduct.price}</div>
-      <div className="btn btn-danger btn-md cart-btn" onClick={handleAddToCart}>
+      <div className="btn btn-md  cart-btn" onClick={handleAddToCart}>
         Añadir al carrito
       </div>
     </div>
