@@ -44,10 +44,11 @@
 
 /* navbar */
 .navbar {
+  flex-wrap: wrap;
   width: 100%;
   padding: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-around;
   align-items: center;
   background-color: #f6f6f6;
 }
@@ -70,12 +71,26 @@
   height: 100%;
 }
 
-.navbar .center h1 {
-  text-align: left;
-  margin-top: 10px;
-  color: #0c5c13;
-  font-weight: 900;
+
+.logout{
+  background-color: #0c5c13;
+  border: none;
+  color: white;
+  padding: 3px 9px;
+  text-decoration: none;
+  margin: 4px 2px;
   cursor: pointer;
+  text-align:center;
+  border-radius: 8px;
+  width: 100px;
+}
+
+
+.navbar .center h1 {
+  margin-left: 310px;
+  color: #0c5c13;
+  font-weight: bold;
+  align-self: center;
 }
 .navbar .rightside {
   display: flex;
@@ -83,6 +98,7 @@
   font-size: 16px;
   margin-right: 24px;
   align-items: center;
+  
 }
 
 @media (max-width: 450px) {

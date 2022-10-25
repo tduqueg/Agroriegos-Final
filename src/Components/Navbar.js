@@ -52,7 +52,7 @@ export const Navbar = ({ user, totalProducts }) => {
                 </Link>
                 <span className="cart-indicator">{totalProducts}</span>
               </div>
-              <div className="btn btn-danger btn-md" onClick={handleLogout}>
+              <div className="logout" onClick={handleLogout}>
                 Cerrar Sesión
               </div>
             </>
