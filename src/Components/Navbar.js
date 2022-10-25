@@ -22,10 +22,18 @@ export const Navbar = ({ user, totalProducts }) => {
           <img src={logo} alt="logo" />
         </div>
       </div>
-
-      <div className="center">
+{user&&(      
+  <div className="center-1">
         <h1>AGRORIEGOS</h1>
-      </div>
+      </div>)
+
+}
+{!user&&(      
+<div className="center">
+        <h1>AGRORIEGOS</h1>
+      </div>)
+
+}
       <div className="rightside">
         <div>
           {!user && (

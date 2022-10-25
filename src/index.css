@@ -85,9 +85,15 @@
   width: 100px;
 }
 
+.navbar .center-1 h1 {
+  margin-left: 310px;
+  color: #0c5c13;
+  font-weight: bold;
+  align-self: center;
+}
 
 .navbar .center h1 {
-  margin-left: 310px;
+  margin-left: 200px;
   color: #0c5c13;
   font-weight: bold;
   align-self: center;
