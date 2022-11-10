@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import { auth, fs } from '../Config/Config';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { auth, fs } from "../Config/Config";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 export default function Signup() {
   const navigate = useNavigate();
 
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [errorMsg, setErrorMsg] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ export default function Signup() {
       .createUserWithEmailAndPassword(email, password)
       .then((credentials) => {
         console.log(credentials);
-        fs.collection('Users')
+        fs.collection("Users")
           .doc(credentials.user.uid)
           .set({
             FullName: fullName,
@@ -28,15 +29,15 @@ export default function Signup() {
           })
           .then(() => {
             setSuccessMsg(
-              'Su registro fue exitoso, serás redireccionado al inicio de sesión'
+              "Su registro fue exitoso, serás redireccionado al inicio de sesión"
             );
-            setFullName('');
-            setEmail('');
-            setPassword('');
-            setErrorMsg('');
+            setFullName("");
+            setEmail("");
+            setPassword("");
+            setErrorMsg("");
             setTimeout(() => {
-              setSuccessMsg('');
-              navigate('/login');
+              setSuccessMsg("");
+              navigate("/login");
             }, 3000);
           })
           .catch((error) => setErrorMsg(error.message));
@@ -47,6 +48,7 @@ export default function Signup() {
   };
   return (
     <div className="container">
+      <Navbar />
       <br></br>
       <br></br>
       <h1>Registrarse</h1>
@@ -89,7 +91,7 @@ export default function Signup() {
           <span>
             ¿Ya tienes una cuenta? Inicia Sesión
             <Link to="/login" className="link">
-              {' '}
+              {" "}
               Aquí
             </Link>
           </span>

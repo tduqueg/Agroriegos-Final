@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { auth } from '../Config/Config';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { auth } from "../Config/Config";
+import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [errorMsg, setErrorMsg] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,14 +19,14 @@ export default function Login() {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         setSuccessMsg(
-          'Inicio de sesión exitoso, serás redireccionado a la página principal'
+          "Inicio de sesión exitoso, serás redireccionado a la página principal"
         );
-        setEmail('');
-        setPassword('');
-        setErrorMsg('');
+        setEmail("");
+        setPassword("");
+        setErrorMsg("");
         setTimeout(() => {
-          setSuccessMsg('');
-          navigate('/');
+          setSuccessMsg("");
+          navigate("/");
         }, 3000);
       })
       .catch((error) => setErrorMsg(error.message));
@@ -33,6 +34,7 @@ export default function Login() {
 
   return (
     <div className="container">
+      <Navbar />
       <br></br>
       <br></br>
       <h1>Iniciar Sesión</h1>
@@ -66,7 +68,7 @@ export default function Login() {
           <span>
             ¿No tienes una cuenta? Registrate
             <Link to="/signup" className="link">
-              {' '}
+              {" "}
               Aquí
             </Link>
           </span>
