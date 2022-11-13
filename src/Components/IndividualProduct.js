@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
 
-export default function IndividualProduct({ individualProduct, addToCart }) {
+export default function IndividualFilteredProduct({
+  individualProduct,
+  addToCart,
+}) {
   //console.log(IndividualProduct);
   const handleAddToCart = () => {
     addToCart(individualProduct);
   };
+
   return (
     <div className="product">
       <div className="product-img">

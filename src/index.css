@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
@@ -48,7 +48,7 @@
   width: 100%;
   padding: 24px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   background-color: #f6f6f6;
 }
@@ -71,8 +71,7 @@
   height: 100%;
 }
 
-
-.logout{
+.logout {
   background-color: #0c5c13;
   border: none;
   color: white;
@@ -80,7 +79,7 @@
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
-  text-align:center;
+  text-align: center;
   border-radius: 8px;
   width: 100px;
 }
@@ -104,7 +103,6 @@
   font-size: 16px;
   margin-right: 24px;
   align-items: center;
-  
 }
 
 @media (max-width: 450px) {
@@ -367,6 +365,13 @@
   width: 100%;
   display: flex;
 }
+.regresar-productos {
+  text-decoration: none;
+  color: white;
+  background-color: #0c5c13;
+  padding: 10px;
+  border-radius: 5px;
+}
 
 @media (max-width: 540px) {
   .filter-products-main-box {
@@ -419,60 +424,204 @@
 }
 
 .filter-box span.diezcincuenta {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 
 .filter-box span.cincuentacien {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 
 .filter-box span.ciencuatrocientos {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 
 .filter-box span.cuatrocientos {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 
 .filter-box span.quinientosmillon {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.milloncincomillones {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.cincomillonesdiezmillones {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.diezmillonesveintemillones {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.veintemillones {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.DeCereales {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.Frutal {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.Ornamental {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.RaicesYTuberculos {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.Pastos {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.PorAspersion {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.PorDifusor {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.PorGoteo {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
 .filter-box span.PorCintasDeExudacion {
-  color: #e00a02;
+  color: #ffffff;
+  background-color: #0c5c13;
+  border-radius: 5px;
+  height: 30px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
 }
