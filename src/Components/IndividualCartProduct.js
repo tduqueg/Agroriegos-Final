@@ -1,8 +1,8 @@
-import React from 'react';
-import { Icon } from 'react-icons-kit';
-import { plus } from 'react-icons-kit/feather/plus';
-import { minus } from 'react-icons-kit/feather/minus';
-import { auth, fs } from '../Config/Config';
+import React from "react";
+import { Icon } from "react-icons-kit";
+import { plus } from "react-icons-kit/feather/plus";
+import { minus } from "react-icons-kit/feather/minus";
+import { auth, fs } from "../Config/Config";
 
 export default function IndividualCartProduct({
   cartProduct,
@@ -20,11 +20,11 @@ export default function IndividualCartProduct({
   const handleCartProductDelete = () => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        fs.collection('Cart ' + user.uid)
+        fs.collection("Cart " + user.uid)
           .doc(cartProduct.ID)
           .delete()
           .then(() => {
-            console.log('Producto eliminado satisfactoriamente');
+            console.log("Producto eliminado satisfactoriamente");
           });
       }
     });
@@ -50,10 +50,7 @@ export default function IndividualCartProduct({
       <div className="product-text cart-price">
         $ {cartProduct.TotalProductPrice}
       </div>
-      <div
-        className="btn btn-danger btn-md cart-btn"
-        onClick={handleCartProductDelete}
-      >
+      <div className="btn btn-md  cart-btn" onClick={handleCartProductDelete}>
         Eliminar
       </div>
     </div>

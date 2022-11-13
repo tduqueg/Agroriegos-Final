@@ -22,8 +22,8 @@ export const IndividualFilteredProduct = ({
       <div className="product-text price">
         $ {individualFilteredProduct.price}
       </div>
-      <div className="btn btn-danger btn-md cart-btn" onClick={handleAddToCart}>
-        ADD TO CART
+      <div className="btn btn-md  cart-btn" onClick={handleAddToCart}>
+        Añadir al carrito
       </div>
     </div>
   );
